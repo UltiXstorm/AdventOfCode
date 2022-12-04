@@ -12,6 +12,7 @@ class BackPack:
         total_size = len(items_list)
         part_size = int(total_size/2)
 
+        self.all_items = items_list
         self.first_part = items_list[slice(part_size)]
         self.second_part = items_list[slice(part_size, total_size)]
 
@@ -23,3 +24,12 @@ class BackPack:
 
         return duplicate[0]
 
+    def getItemsSet(self):
+        return set(self.all_items)
+
+
+def getBadge(set1, set2, set3):
+    for item in set1:
+        if (item in set2):
+            if (item in set3):
+                return item
