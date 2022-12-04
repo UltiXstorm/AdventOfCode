@@ -25,11 +25,6 @@ with open('./input.txt', 'r') as all_backpack_items:
             current_squad_backpack.clear()
             squad_member = 0
 
-
-
 print("Total is {}".format(total))
 
 print("Total Badges is {}".format(total_badges))
-
-
-
