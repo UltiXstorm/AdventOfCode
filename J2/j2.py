@@ -5,8 +5,9 @@ opponent = Player('A', 'B', 'C')
 player = Player('X', 'Y', 'Z')
 
 def roundMatch(opponent: Player, player: Player, opponent_letter: str, player_letter: str):
+    print("Opponent : {}, Player : {}".format(opponent_letter, player_letter))
     opponent_play = opponent.play(opponent_letter)
-    player_play = player.play(player_letter)
+    player_play = player.playV2(player_letter, opponent_play)
 
     print("Opponent : {}, Player : {}".format(opponent_play,player_play))
 
@@ -51,6 +52,7 @@ def roundMatch(opponent: Player, player: Player, opponent_letter: str, player_le
             opponent.draw()
             player.draw()
             print("It's a draw")
+
 
 with open('./input.txt', 'r') as rps_game:
     for round in rps_game:
