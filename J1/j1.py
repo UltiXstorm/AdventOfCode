@@ -14,3 +14,8 @@ max_capacity = max(elfs_capacity)
 elf_number = elfs_capacity.index(max_capacity)
 
 print("Max calories is {} carried by elf number {}".format(max_capacity, elf_number+1))
+
+elfs_capacity.sort()
+elfs_capacity.reverse()
+
+print("Top 3 is, 1 : {}, 2 : {}, 3 : {}".format(elfs_capacity[0], elfs_capacity[1], elfs_capacity[2]))
