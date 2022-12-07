@@ -1,12 +1,12 @@
 import json
 
-def set_value(obj, path, value):
+def set_value(obj, path, name, value):
     path_parts = path.split(".")
-    for part in path_parts[:-1]:
+    for part in path_parts:
         if part not in obj:
             obj[part] = {}
         obj = obj[part]
-    obj[path_parts[-1]] = value
+    obj[name] = value
 
 class Path:
     def __init__(self):
@@ -36,30 +36,21 @@ class Arborescence:
             else:
                 self.repo_size[repo] += value
 
-    def addItem(self, name, value, path=''):
-        print("ADD")
-        if path == '':
-            print("root")
-            self.arbo[name] = value
-
-        else:
-            print("Path : "+ path+'.'+name)
-            update_path = path + '.' + name
-            set_value(self.arbo, update_path, value)
-
-            self.addSize(path, value)
+    def addFilename(self, filename, value, path):
+        set_value(self.arbo, path, filename, value)
+        self.addSize(path, value)
 
     def part1(self):
         total = 0
+        all_find = {}
 
         for repo in self.repo_size:
             value = self.repo_size[repo]
-            print("{} : {}".format(repo, value))
             if value <= 100000:
-                print("YES")
                 total += value
+                all_find[repo] = value
 
-        return total
+        return total, json.dumps(all_find, indent = 2)
 
     def __str__(self):
-        return json.dumps(self.repo_size, indent = 2)
+        return json.dumps(self.arbo, indent = 2)

@@ -13,12 +13,10 @@ with open('./input.txt', 'r') as commands_list:
             if command[1] == 'cd':
                 path.doChangeDirectory(command[2])
 
-            elif command[1] == 'ls':
-                continue
-
         elif command[0] != 'dir':
-            arbo.addItem(command[1], int(command[0]), path.getCurrentPath())
+            arbo.addFilename(command[1], int(command[0]), path.getCurrentPath())
 
-
-print(arbo)
-print(arbo.part1())
+#print(arbo)
+#total, allFind = arbo.part1()
+#print(total)
+#print(allFind)
