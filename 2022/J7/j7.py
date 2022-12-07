@@ -17,6 +17,6 @@ with open('./input.txt', 'r') as commands_list:
             arbo.addFilename(command[1], int(command[0]), path.getCurrentPath())
 
 #print(arbo)
-#total, allFind = arbo.part1()
-#print(total)
-#print(allFind)
+total, allFind = arbo.part1()
+print(total)
+print(allFind)

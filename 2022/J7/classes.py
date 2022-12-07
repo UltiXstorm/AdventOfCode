@@ -1,12 +1,12 @@
 import json
 
-def set_value(obj, path, name, value):
+def set_value(object, path, filename, value):
     path_parts = path.split(".")
     for part in path_parts:
-        if part not in obj:
-            obj[part] = {}
-        obj = obj[part]
-    obj[name] = value
+        if part not in object:
+            object[part] = {}
+        object = object[part]
+    object[filename] = value
 
 class Path:
     def __init__(self):
